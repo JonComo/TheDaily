@@ -1,21 +1,64 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4451" systemVersion="13A461" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="LVB-YS-i5n">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="LVB-YS-i5n">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3676"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
+        <!--Day View Controller-->
         <scene sceneID="CtS-rA-C9T">
             <objects>
-                <viewController id="LVB-YS-i5n" customClass="TDViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bdc-N1-crn" customClass="SKView">
+                <viewController id="LVB-YS-i5n" customClass="TDDayViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eI2-YU-iu3"/>
+                        <viewControllerLayoutGuide type="bottom" id="19k-s4-IMy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bdc-N1-crn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hDr-9H-MMg" customClass="SKView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="0.84963202402837634" blue="0.74523340130657334" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03t-MR-xgL">
+                                <rect key="frame" x="267" y="514" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="LwH-qm-oZT"/>
+                                    <constraint firstAttribute="width" constant="50" id="VfL-wB-dTj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <state key="normal" title="+">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showTemplates:" destination="LVB-YS-i5n" eventType="touchUpInside" id="3Xp-BD-vHN"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="hDr-9H-MMg" secondAttribute="bottom" id="EBr-YR-wmv"/>
+                            <constraint firstItem="19k-s4-IMy" firstAttribute="top" secondItem="03t-MR-xgL" secondAttribute="bottom" constant="4" id="Ede-Gq-HmX"/>
+                            <constraint firstAttribute="trailing" secondItem="hDr-9H-MMg" secondAttribute="trailing" id="HDJ-2x-qMr"/>
+                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="03t-MR-xgL" secondAttribute="trailing" constant="4" id="UYA-RT-EzF"/>
+                            <constraint firstItem="hDr-9H-MMg" firstAttribute="leading" secondItem="bdc-N1-crn" secondAttribute="leading" id="b0R-IK-V3u"/>
+                            <constraint firstItem="19k-s4-IMy" firstAttribute="top" secondItem="03t-MR-xgL" secondAttribute="bottom" constant="4" id="b18-3T-PhM"/>
+                            <constraint firstAttribute="trailing" secondItem="03t-MR-xgL" secondAttribute="trailing" constant="3" id="dNa-Nm-4rI"/>
+                            <constraint firstItem="hDr-9H-MMg" firstAttribute="top" secondItem="bdc-N1-crn" secondAttribute="top" id="qMy-ms-FEq"/>
+                            <constraint firstItem="19k-s4-IMy" firstAttribute="top" secondItem="03t-MR-xgL" secondAttribute="bottom" constant="4" id="rvE-aa-WM0"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="03t-MR-xgL" secondAttribute="trailing" constant="3" id="wVZ-Wa-6c7"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="viewDaily" destination="hDr-9H-MMg" id="mQs-pn-s4q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btX-cZ-eVz" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="134" y="34"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

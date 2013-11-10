@@ -15,15 +15,20 @@
 		86C7121B182F57820049B517 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C7121A182F57820049B517 /* main.m */; };
 		86C7121F182F57820049B517 /* TDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C7121E182F57820049B517 /* TDAppDelegate.m */; };
 		86C71222182F57820049B517 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86C71220182F57820049B517 /* Main.storyboard */; };
-		86C71225182F57820049B517 /* TDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C71224182F57820049B517 /* TDViewController.m */; };
-		86C71228182F57820049B517 /* TDMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C71227182F57820049B517 /* TDMyScene.m */; };
-		86C7122A182F57820049B517 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 86C71229182F57820049B517 /* Spaceship.png */; };
 		86C7122C182F57820049B517 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86C7122B182F57820049B517 /* Images.xcassets */; };
 		86C71233182F57820049B517 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C71232182F57820049B517 /* XCTest.framework */; };
 		86C71234182F57820049B517 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C7120C182F57820049B517 /* Foundation.framework */; };
 		86C71235182F57820049B517 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C71210182F57820049B517 /* UIKit.framework */; };
 		86C7123D182F57820049B517 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 86C7123B182F57820049B517 /* InfoPlist.strings */; };
 		86C7123F182F57820049B517 /* TheDailyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C7123E182F57820049B517 /* TheDailyTests.m */; };
+		86C7124A182F58490049B517 /* TDDayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C71249182F58490049B517 /* TDDayViewController.m */; };
+		86C7124D182F58880049B517 /* TDDayScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C7124C182F58880049B517 /* TDDayScene.m */; };
+		86C71250182F5A6E0049B517 /* TDReminderTemplateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C7124F182F5A6E0049B517 /* TDReminderTemplateCell.m */; };
+		86C71252182F5A790049B517 /* reminderTemplateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C71251182F5A790049B517 /* reminderTemplateCell.xib */; };
+		86C71255182F5F190049B517 /* TDReminderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C71254182F5F190049B517 /* TDReminderView.m */; };
+		86C71257182F5F2D0049B517 /* reminderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C71256182F5F2D0049B517 /* reminderView.xib */; };
+		86C7125A182F61F80049B517 /* TDTemplateCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C71259182F61F80049B517 /* TDTemplateCollectionView.m */; };
+		86C7125D182F6BC20049B517 /* JCMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C7125C182F6BC20049B517 /* JCMath.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,17 +54,26 @@
 		86C7121D182F57820049B517 /* TDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDAppDelegate.h; sourceTree = "<group>"; };
 		86C7121E182F57820049B517 /* TDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TDAppDelegate.m; sourceTree = "<group>"; };
 		86C71221182F57820049B517 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		86C71223182F57820049B517 /* TDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDViewController.h; sourceTree = "<group>"; };
-		86C71224182F57820049B517 /* TDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TDViewController.m; sourceTree = "<group>"; };
-		86C71226182F57820049B517 /* TDMyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDMyScene.h; sourceTree = "<group>"; };
-		86C71227182F57820049B517 /* TDMyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TDMyScene.m; sourceTree = "<group>"; };
-		86C71229182F57820049B517 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
 		86C7122B182F57820049B517 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		86C71231182F57820049B517 /* TheDailyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheDailyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		86C71232182F57820049B517 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		86C7123A182F57820049B517 /* TheDailyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TheDailyTests-Info.plist"; sourceTree = "<group>"; };
 		86C7123C182F57820049B517 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		86C7123E182F57820049B517 /* TheDailyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TheDailyTests.m; sourceTree = "<group>"; };
+		86C71248182F58490049B517 /* TDDayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDDayViewController.h; sourceTree = "<group>"; };
+		86C71249182F58490049B517 /* TDDayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDDayViewController.m; sourceTree = "<group>"; };
+		86C7124B182F58880049B517 /* TDDayScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDDayScene.h; sourceTree = "<group>"; };
+		86C7124C182F58880049B517 /* TDDayScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDDayScene.m; sourceTree = "<group>"; };
+		86C7124E182F5A6E0049B517 /* TDReminderTemplateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDReminderTemplateCell.h; sourceTree = "<group>"; };
+		86C7124F182F5A6E0049B517 /* TDReminderTemplateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDReminderTemplateCell.m; sourceTree = "<group>"; };
+		86C71251182F5A790049B517 /* reminderTemplateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = reminderTemplateCell.xib; sourceTree = "<group>"; };
+		86C71253182F5F190049B517 /* TDReminderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDReminderView.h; sourceTree = "<group>"; };
+		86C71254182F5F190049B517 /* TDReminderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDReminderView.m; sourceTree = "<group>"; };
+		86C71256182F5F2D0049B517 /* reminderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = reminderView.xib; sourceTree = "<group>"; };
+		86C71258182F61F80049B517 /* TDTemplateCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTemplateCollectionView.h; sourceTree = "<group>"; };
+		86C71259182F61F80049B517 /* TDTemplateCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTemplateCollectionView.m; sourceTree = "<group>"; };
+		86C7125B182F6BC20049B517 /* JCMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCMath.h; sourceTree = "<group>"; };
+		86C7125C182F6BC20049B517 /* JCMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCMath.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +123,8 @@
 		86C7120B182F57820049B517 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				86C7125B182F6BC20049B517 /* JCMath.h */,
+				86C7125C182F6BC20049B517 /* JCMath.m */,
 				86C7120C182F57820049B517 /* Foundation.framework */,
 				86C7120E182F57820049B517 /* CoreGraphics.framework */,
 				86C71210182F57820049B517 /* UIKit.framework */,
@@ -124,11 +140,18 @@
 				86C7121D182F57820049B517 /* TDAppDelegate.h */,
 				86C7121E182F57820049B517 /* TDAppDelegate.m */,
 				86C71220182F57820049B517 /* Main.storyboard */,
-				86C71223182F57820049B517 /* TDViewController.h */,
-				86C71224182F57820049B517 /* TDViewController.m */,
-				86C71226182F57820049B517 /* TDMyScene.h */,
-				86C71227182F57820049B517 /* TDMyScene.m */,
-				86C71229182F57820049B517 /* Spaceship.png */,
+				86C71248182F58490049B517 /* TDDayViewController.h */,
+				86C71249182F58490049B517 /* TDDayViewController.m */,
+				86C7124B182F58880049B517 /* TDDayScene.h */,
+				86C7124C182F58880049B517 /* TDDayScene.m */,
+				86C7124E182F5A6E0049B517 /* TDReminderTemplateCell.h */,
+				86C7124F182F5A6E0049B517 /* TDReminderTemplateCell.m */,
+				86C71251182F5A790049B517 /* reminderTemplateCell.xib */,
+				86C71253182F5F190049B517 /* TDReminderView.h */,
+				86C71254182F5F190049B517 /* TDReminderView.m */,
+				86C71256182F5F2D0049B517 /* reminderView.xib */,
+				86C71258182F61F80049B517 /* TDTemplateCollectionView.h */,
+				86C71259182F61F80049B517 /* TDTemplateCollectionView.m */,
 				86C7122B182F57820049B517 /* Images.xcassets */,
 				86C71215182F57820049B517 /* Supporting Files */,
 			);
@@ -241,10 +264,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86C71257182F5F2D0049B517 /* reminderView.xib in Resources */,
 				86C71219182F57820049B517 /* InfoPlist.strings in Resources */,
 				86C7122C182F57820049B517 /* Images.xcassets in Resources */,
-				86C7122A182F57820049B517 /* Spaceship.png in Resources */,
 				86C71222182F57820049B517 /* Main.storyboard in Resources */,
+				86C71252182F5A790049B517 /* reminderTemplateCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,10 +287,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86C71225182F57820049B517 /* TDViewController.m in Sources */,
+				86C7125A182F61F80049B517 /* TDTemplateCollectionView.m in Sources */,
 				86C7121F182F57820049B517 /* TDAppDelegate.m in Sources */,
-				86C71228182F57820049B517 /* TDMyScene.m in Sources */,
+				86C7125D182F6BC20049B517 /* JCMath.m in Sources */,
 				86C7121B182F57820049B517 /* main.m in Sources */,
+				86C71255182F5F190049B517 /* TDReminderView.m in Sources */,
+				86C7124A182F58490049B517 /* TDDayViewController.m in Sources */,
+				86C71250182F5A6E0049B517 /* TDReminderTemplateCell.m in Sources */,
+				86C7124D182F58880049B517 /* TDDayScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
