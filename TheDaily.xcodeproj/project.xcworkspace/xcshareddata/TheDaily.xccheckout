@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E0ABC3D3-7C4A-4B34-90EA-D78C2165EC4B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TheDaily</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>112B805C-1D0D-4045-B7D4-63F164BDA16D</key>
+		<string>https://github.com/JonComo/TheDaily.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>TheDaily.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>112B805C-1D0D-4045-B7D4-63F164BDA16D</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/JonComo/TheDaily.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>112B805C-1D0D-4045-B7D4-63F164BDA16D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>112B805C-1D0D-4045-B7D4-63F164BDA16D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TheDaily</string>
+		</dict>
+	</array>
+</dict>
+</plist>

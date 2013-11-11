@@ -13,13 +13,20 @@
     __weak IBOutlet UILabel *labelName;
 }
 
--(void)setNoteInfo:(NSDictionary *)noteInfo
+-(void)setName:(NSString *)name
 {
-    _noteInfo = noteInfo;
-    
-    NSString *name = noteInfo[@"name"];
+    _name = name;
     
     labelName.text = name;
+}
+
+-(void)setNotification:(UILocalNotification *)notification
+{
+    _notification = notification;
+    
+    self.name = notification.userInfo[@"name"];
+    
+    labelName.text = notification.userInfo[@"name"];
 }
 
 +(TDReminderView *)reminder

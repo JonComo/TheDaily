@@ -10,7 +10,9 @@
 
 @interface TDReminderView : UIView
 
-@property (nonatomic, strong) NSDictionary *noteInfo;
+@property (nonatomic, strong) NSString *name; //if new
+@property (nonatomic, strong) UILocalNotification *notification; //if already scheduled
+
 @property (weak, nonatomic) IBOutlet UILabel *labelTime;
 
 +(TDReminderView *)reminder;
