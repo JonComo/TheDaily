@@ -8,32 +8,26 @@
 
 #import "TDDayViewController.h"
 
-@import SpriteKit;
-
-#import "TDDayScene.h"
 #import "TDReminderTemplateCell.h"
-
 #import "TDReminderView.h"
-
 #import "TDTemplateCollectionView.h"
 
 #import "JCMath.h"
+
+#import "UILocalNotification+DailyNotification.h"
+
+#import "TDAppDelegate.h"
 
 #define REMINDER_TEMPLATES @"reminderTemplates"
 
 @interface TDDayViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 {
-    __weak IBOutlet SKView *viewDaily;
-    TDDayScene *dayScene;
-    
     NSMutableArray *reminderTemplates; //dictionaries in userdefaults
     
     UIView *templatesView;
     TDTemplateCollectionView *templatesCollectionView;
     
     TDReminderView *reminderViewActive;
-    CGPoint touchPosition;
-    CGPoint touchOffset;
     
     BOOL shouldAddReminder;
     
@@ -45,6 +39,9 @@
     NSString *newReminderName;
     
     NSTimeInterval currentTime;
+    
+    BOOL didDrag;
+    BOOL wasDeselected;
 }
 
 @end
@@ -57,11 +54,7 @@
 	// Do any additional setup after loading the view.
     
     formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"HH:mm a"];
-    
-    dayScene = [[TDDayScene alloc] initWithSize:viewDaily.bounds.size];
-    dayScene.scaleMode = SKSceneScaleModeAspectFit;
-    [viewDaily presentScene:dayScene];
+    [formatter setDateFormat:@"hh:mm a"];
     
     reminderTemplates = [[NSUserDefaults standardUserDefaults] objectForKey:REMINDER_TEMPLATES];
     
@@ -87,10 +80,9 @@
     
     scheduleDay = [calendar dateFromComponents:components];
     
-    //NSTimer *timer;
-    //timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(update:) userInfo:nil repeats:YES];
-    
     currentTime = 0;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedNotification:) name:LOCAL_NOTE object:nil];
     
     [self showScheduledReminders];
 }
@@ -99,6 +91,13 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)receivedNotification:(UILocalNotification *)note
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Local note" message:@"message" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    
+    [alert show];
 }
 
 - (IBAction)clear:(id)sender {
@@ -122,12 +121,10 @@
     {
         TDReminderView *reminder = [self newReminderAtPosition:CGPointZero];
         
+        reminder.selected = NO;
         reminder.notification = note;
-        reminder.labelTime.text = [formatter stringFromDate:note.fireDate];
-        
-        CGPoint location = [self positionForReminder:reminder];
-        reminder.frame = CGRectMake(location.x, location.y, reminder.frame.size.width, reminder.frame.size.height);
-        
+        reminder.timeFormatted = [formatter stringFromDate:note.fireDate];
+
         [self positionReminders];
     }
 }
@@ -141,11 +138,9 @@
     float distance = [JCMath distanceBetweenPoint:reminder.frame.origin andPoint:center sorting:NO];
     
     //remove already scheduled
-    NSArray *scheduled = [[UIApplication sharedApplication] scheduledLocalNotifications];
-    
-    for (UILocalNotification *notification in scheduled){
-        if ([notification.userInfo[@"id"] isEqualToString:reminder.notification.userInfo[@"id"]]){
-            [[UIApplication sharedApplication] cancelLocalNotification:notification];
+    for (UILocalNotification *note in [[UIApplication sharedApplication] scheduledLocalNotifications]){
+        if ([note.userInfo[@"id"] isEqualToString:reminder.notification.userInfo[@"id"]]){
+            [note cancel];
         }
     }
     
@@ -167,19 +162,15 @@
     
     localNote.userInfo = @{@"name": reminder.name, @"distance": @(distance), @"id": [NSString stringWithFormat:@"%@%i", reminder.name, seconds], @"angle": @(angle)};
     
+    reminderViewActive.notification = localNote;
+    
     [[UIApplication sharedApplication] scheduleLocalNotification:localNote];
     
-    [self showScheduledReminders];
+    //[self showScheduledReminders];
     
     for (UILocalNotification *notification in [[UIApplication sharedApplication] scheduledLocalNotifications]){
         NSLog(@"Note: %@", notification);
     }
-}
-
--(void)update:(NSTimer *)timer
-{
-    currentTime += 1;
-    [self positionReminders];
 }
 
 -(void)positionReminders
@@ -191,10 +182,9 @@
         
         TDReminderView *reminder = (TDReminderView *)subview;
         
-        //[UIView animateWithDuration:0.3 animations:^{
-            CGPoint position = [self positionForReminder:reminder];
-            reminder.frame = CGRectMake(position.x, position.y, reminder.frame.size.width, reminder.frame.size.height);
-        //}];
+        CGPoint position = [self positionForReminder:reminder];
+        
+        reminder.frame = CGRectMake(position.x, position.y, reminder.frame.size.width, reminder.frame.size.height);
     }
 }
 
@@ -205,7 +195,7 @@
     float angle = [reminder.notification.userInfo[@"angle"] floatValue];
     float distance = [reminder.notification.userInfo[@"distance"] floatValue];
     
-    //angle += currentTime;
+    // angle += currentTime;
     
     CGPoint offset = [JCMath pointFromPoint:center pushedBy:distance inDirection:angle];
     
@@ -216,7 +206,7 @@
 {
     CGPoint center = CGPointMake(self.view.bounds.size.width/2, self.view.bounds.size.height/2);
     
-    float angle = [JCMath angleFromPoint:center toPoint:position] + 180;
+    float angle = [JCMath angleFromPoint:center toPoint:position] - 90.0;
     
     int seconds = [self secondsFromAngle:angle];
     
@@ -245,7 +235,9 @@
 {
     if (!templatesView)
     {
-        templatesView = [[UIView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width/2 - 150, self.view.bounds.size.height/2 - 200, 300, 400)];
+        UIEdgeInsets insets = UIEdgeInsetsMake(100, 40, 100, 40);
+        
+        templatesView = [[UIView alloc] initWithFrame:CGRectMake(insets.left, insets.top, self.view.bounds.size.width - insets.left - insets.right, self.view.bounds.size.height - insets.top - insets.bottom)];
         
         templatesView.backgroundColor = [UIColor greenColor];
         
@@ -295,14 +287,15 @@
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch *touch = [touches anyObject];
-    touchPosition = [touch locationInView:self.view];
+    CGPoint touchPosition = [touch locationInView:self.view];
     
-    if (shouldAddReminder)
-    {
+    didDrag = NO;
+    
+    if (shouldAddReminder){
         shouldAddReminder = NO;
+        
         reminderViewActive = [self newReminderAtPosition:touchPosition];
         
-        touchOffset = CGPointMake(touchPosition.x - reminderViewActive.frame.origin.x, touchPosition.y - reminderViewActive.frame.origin.y);
         return;
     }
     
@@ -318,27 +311,33 @@
             if (difX > 0 && difX < subview.frame.size.width && difY > 0 && difY < subview.frame.size.height)
             {
                 reminderViewActive = (TDReminderView *)subview;
-                
-                touchOffset = CGPointMake(touchPosition.x - subview.frame.origin.x, touchPosition.y - subview.frame.origin.y);
             }
         }
+    }
+    
+    wasDeselected = !reminderViewActive.selected;
+    
+    if (reminderViewActive)
+    {
+        [self deselectAllReminders];
+        reminderViewActive.selected = YES;
     }
 }
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch *touch = [touches anyObject];
-    touchPosition = [touch locationInView:self.view];
+    CGPoint touchPosition = [touch locationInView:self.view];
     
-    CGPoint translation = CGPointMake(touchPosition.x - touchOffset.x, touchPosition.y - touchOffset.y);
+    didDrag = YES;
     
-    reminderViewActive.frame = CGRectMake(translation.x, translation.y, reminderViewActive.frame.size.width, reminderViewActive.frame.size.height);
+    reminderViewActive.frame = CGRectMake(touchPosition.x - reminderViewActive.frame.size.width/2, touchPosition.y - reminderViewActive.frame.size.height/2, reminderViewActive.frame.size.width, reminderViewActive.frame.size.height);
     
     if (reminderViewActive){
-        NSTimeInterval seconds = [self secondsForPosition:reminderViewActive.frame.origin];
+        NSTimeInterval seconds = [self secondsForPosition:CGPointMake(reminderViewActive.frame.origin.x + reminderViewActive.frame.size.width/2, reminderViewActive.frame.origin.y + reminderViewActive.frame.size.height/2)];
         NSString *timeString = [formatter stringFromDate:[self dateOffsetBySeconds:seconds]];
         
-        reminderViewActive.labelTime.text = timeString;
+        reminderViewActive.timeFormatted = timeString;
     }
 }
 
@@ -354,9 +353,21 @@
 
 -(void)touchesEnded
 {
-    if (!reminderViewActive) return;
+    if (!reminderViewActive)
+    {
+        [self deselectAllReminders];
+        return;
+    }
     
-    //make reminder with seconds and userinfo of distance of the view
+    if (didDrag){
+        reminderViewActive.selected = NO;
+    }
+    
+    if (!wasDeselected)
+    {
+        reminderViewActive.selected = NO;
+    }
+    
     [self scheduleReminderForReminderView:reminderViewActive];
     
     [self removeTemplates];
@@ -372,7 +383,7 @@
 {
     [self hideTemplates];
     
-    TDReminderView *reminder = [TDReminderView reminder];
+    TDReminderView *reminder = [TDReminderView reminderAtPoint:position];
     
     reminder.name = newReminderName;
     
@@ -381,6 +392,18 @@
     [self.view addSubview:reminder];
     
     return reminder;
+}
+
+-(void)deselectAllReminders
+{
+    for (UIView *view in self.view.subviews)
+    {
+        if ([view isKindOfClass:[TDReminderView class]])
+        {
+            TDReminderView *reminder = (TDReminderView *)view;
+            reminder.selected = NO;
+        }
+    }
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath

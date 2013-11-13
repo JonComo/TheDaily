@@ -13,8 +13,11 @@
 @property (nonatomic, strong) NSString *name; //if new
 @property (nonatomic, strong) UILocalNotification *notification; //if already scheduled
 
-@property (weak, nonatomic) IBOutlet UILabel *labelTime;
+@property (nonatomic, strong) NSString *timeFormatted;
 
-+(TDReminderView *)reminder;
+@property (nonatomic, strong) UIColor *primary;
+@property (nonatomic, assign) BOOL selected;
+
++(TDReminderView *)reminderAtPoint:(CGPoint)point;
 
 @end

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define LOCAL_NOTE @"localNote"
+
 @interface TDAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
