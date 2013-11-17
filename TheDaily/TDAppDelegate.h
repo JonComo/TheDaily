@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #define LOCAL_NOTE @"localNote"
+#define ENTER_BG @"enterBG"
 
 @interface TDAppDelegate : UIResponder <UIApplicationDelegate>
 

@@ -29,7 +29,6 @@
     //// Subframes
     CGRect drawing = CGRectMake(CGRectGetMinX(frame), CGRectGetMinY(frame), 320, CGRectGetHeight(frame));
     
-    
     //// drawing
     {
         //// daySky Drawing
@@ -54,51 +53,6 @@
         UIBezierPath* moonShadowPath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(CGRectGetMinX(drawing) + floor(CGRectGetWidth(drawing) * 0.33125 + 0.5), CGRectGetMinY(drawing) + floor(CGRectGetHeight(drawing) * 0.66373 + 0.5), floor(CGRectGetWidth(drawing) * 0.57812 + 0.5) - floor(CGRectGetWidth(drawing) * 0.33125 + 0.5), floor(CGRectGetHeight(drawing) * 0.80282 + 0.5) - floor(CGRectGetHeight(drawing) * 0.66373 + 0.5))];
         [night setFill];
         [moonShadowPath fill];
-        
-        
-        //// Star Drawing
-        UIBezierPath* starPath = [UIBezierPath bezierPath];
-        [starPath moveToPoint: CGPointMake(CGRectGetMinX(drawing) + 0.28906 * CGRectGetWidth(drawing), CGRectGetMinY(drawing) + 0.58803 * CGRectGetHeight(drawing))];
-        [starPath addLineToPoint: CGPointMake(CGRectGetMinX(drawing) + 0.29902 * CGRectGetWidth(drawing), CGRectGetMinY(drawing) + 0.60795 * CGRectGetHeight(drawing))];
-        [starPath addLineToPoint: CGPointMake(CGRectGetMinX(drawing) + 0.33437 * CGRectGetWidth(drawing), CGRectGetMinY(drawing) + 0.61356 * CGRectGetHeight(drawing))];
-        [starPath addLineToPoint: CGPointMake(CGRectGetMinX(drawing) + 0.29902 * CGRectGetWidth(drawing), CGRectGetMinY(drawing) + 0.61917 * CGRectGetHeight(drawing))];
-        [starPath addLineToPoint: CGPointMake(CGRectGetMinX(drawing) + 0.28906 * CGRectGetWidth(drawing), CGRectGetMinY(drawing) + 0.63908 * CGRectGetHeight(drawing))];
-        [starPath addLineToPoint: CGPointMake(CGRectGetMinX(drawing) + 0.27910 * CGRectGetWidth(drawing), CGRectGetMinY(drawing) + 0.61917 * CGRectGetHeight(drawing))];
-        [starPath addLineToPoint: CGPointMake(CGRectGetMinX(drawing) + 0.24375 * CGRectGetWidth(drawing), CGRectGetMinY(drawing) + 0.61356 * CGRectGetHeight(drawing))];
-        [starPath addLineToPoint: CGPointMake(CGRectGetMinX(drawing) + 0.27910 * CGRectGetWidth(drawing), CGRectGetMinY(drawing) + 0.60795 * CGRectGetHeight(drawing))];
-        [starPath closePath];
-        [moon setFill];
-        [starPath fill];
-        
-        
-        //// Star 2 Drawing
-        UIBezierPath* star2Path = [UIBezierPath bezierPath];
-        [star2Path moveToPoint: CGPointMake(CGRectGetMinX(drawing) + 0.26719 * CGRectGetWidth(drawing), CGRectGetMinY(drawing) + 0.85563 * CGRectGetHeight(drawing))];
-        [star2Path addLineToPoint: CGPointMake(CGRectGetMinX(drawing) + 0.27303 * CGRectGetWidth(drawing), CGRectGetMinY(drawing) + 0.86731 * CGRectGetHeight(drawing))];
-        [star2Path addLineToPoint: CGPointMake(CGRectGetMinX(drawing) + 0.29375 * CGRectGetWidth(drawing), CGRectGetMinY(drawing) + 0.87060 * CGRectGetHeight(drawing))];
-        [star2Path addLineToPoint: CGPointMake(CGRectGetMinX(drawing) + 0.27303 * CGRectGetWidth(drawing), CGRectGetMinY(drawing) + 0.87389 * CGRectGetHeight(drawing))];
-        [star2Path addLineToPoint: CGPointMake(CGRectGetMinX(drawing) + 0.26719 * CGRectGetWidth(drawing), CGRectGetMinY(drawing) + 0.88556 * CGRectGetHeight(drawing))];
-        [star2Path addLineToPoint: CGPointMake(CGRectGetMinX(drawing) + 0.26135 * CGRectGetWidth(drawing), CGRectGetMinY(drawing) + 0.87389 * CGRectGetHeight(drawing))];
-        [star2Path addLineToPoint: CGPointMake(CGRectGetMinX(drawing) + 0.24063 * CGRectGetWidth(drawing), CGRectGetMinY(drawing) + 0.87060 * CGRectGetHeight(drawing))];
-        [star2Path addLineToPoint: CGPointMake(CGRectGetMinX(drawing) + 0.26135 * CGRectGetWidth(drawing), CGRectGetMinY(drawing) + 0.86731 * CGRectGetHeight(drawing))];
-        [star2Path closePath];
-        [moon setFill];
-        [star2Path fill];
-        
-        
-        //// Star 3 Drawing
-        UIBezierPath* star3Path = [UIBezierPath bezierPath];
-        [star3Path moveToPoint: CGPointMake(CGRectGetMinX(drawing) + 0.80937 * CGRectGetWidth(drawing), CGRectGetMinY(drawing) + 0.71303 * CGRectGetHeight(drawing))];
-        [star3Path addLineToPoint: CGPointMake(CGRectGetMinX(drawing) + 0.81624 * CGRectGetWidth(drawing), CGRectGetMinY(drawing) + 0.72676 * CGRectGetHeight(drawing))];
-        [star3Path addLineToPoint: CGPointMake(CGRectGetMinX(drawing) + 0.84062 * CGRectGetWidth(drawing), CGRectGetMinY(drawing) + 0.73063 * CGRectGetHeight(drawing))];
-        [star3Path addLineToPoint: CGPointMake(CGRectGetMinX(drawing) + 0.81624 * CGRectGetWidth(drawing), CGRectGetMinY(drawing) + 0.73450 * CGRectGetHeight(drawing))];
-        [star3Path addLineToPoint: CGPointMake(CGRectGetMinX(drawing) + 0.80937 * CGRectGetWidth(drawing), CGRectGetMinY(drawing) + 0.74824 * CGRectGetHeight(drawing))];
-        [star3Path addLineToPoint: CGPointMake(CGRectGetMinX(drawing) + 0.80251 * CGRectGetWidth(drawing), CGRectGetMinY(drawing) + 0.73450 * CGRectGetHeight(drawing))];
-        [star3Path addLineToPoint: CGPointMake(CGRectGetMinX(drawing) + 0.77812 * CGRectGetWidth(drawing), CGRectGetMinY(drawing) + 0.73063 * CGRectGetHeight(drawing))];
-        [star3Path addLineToPoint: CGPointMake(CGRectGetMinX(drawing) + 0.80251 * CGRectGetWidth(drawing), CGRectGetMinY(drawing) + 0.72676 * CGRectGetHeight(drawing))];
-        [star3Path closePath];
-        [moon setFill];
-        [star3Path fill];
         
         
         //// sunShape Drawing
@@ -127,6 +81,7 @@
         [sun setFill];
         [sunShapePath fill];
     }
+
 }
 
 

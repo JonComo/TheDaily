@@ -8,15 +8,23 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum
+{
+    TDModeDay,
+    TDModeNight
+} TDMode;
+
 @interface TDReminderView : UIView
 
 @property (nonatomic, strong) NSString *name; //if new
 @property (nonatomic, strong) UILocalNotification *notification; //if already scheduled
 
+@property (nonatomic, assign) TDMode mode;
+
 @property (nonatomic, strong) NSString *timeFormatted;
 
-@property (nonatomic, strong) UIColor *primary;
 @property (nonatomic, assign) BOOL selected;
+@property (nonatomic, assign) BOOL enlarge;
 
 +(TDReminderView *)reminderAtPoint:(CGPoint)point;
 

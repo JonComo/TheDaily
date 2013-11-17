@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		862FB02A1839343C006B355B /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 862FB0291839343C006B355B /* MBProgressHUD.m */; };
 		8645E9D018331D9E0094F676 /* TDDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8645E9CF18331D9E0094F676 /* TDDayView.m */; };
 		8645E9D31833370F0094F676 /* UILocalNotification+DailyNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 8645E9D21833370F0094F676 /* UILocalNotification+DailyNotification.m */; };
 		86C7120D182F57820049B517 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C7120C182F57820049B517 /* Foundation.framework */; };
@@ -42,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		862FB0281839343C006B355B /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		862FB0291839343C006B355B /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		8645E9CE18331D9E0094F676 /* TDDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDDayView.h; sourceTree = "<group>"; };
 		8645E9CF18331D9E0094F676 /* TDDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDDayView.m; sourceTree = "<group>"; };
 		8645E9D11833370F0094F676 /* UILocalNotification+DailyNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILocalNotification+DailyNotification.h"; sourceTree = "<group>"; };
@@ -124,6 +127,8 @@
 		86C7120B182F57820049B517 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				862FB0281839343C006B355B /* MBProgressHUD.h */,
+				862FB0291839343C006B355B /* MBProgressHUD.m */,
 				86C7125B182F6BC20049B517 /* JCMath.h */,
 				86C7125C182F6BC20049B517 /* JCMath.m */,
 				86C7120C182F57820049B517 /* Foundation.framework */,
@@ -295,6 +300,7 @@
 				86C71255182F5F190049B517 /* TDReminderView.m in Sources */,
 				86C7124A182F58490049B517 /* TDDayViewController.m in Sources */,
 				86C71250182F5A6E0049B517 /* TDReminderTemplateCell.m in Sources */,
+				862FB02A1839343C006B355B /* MBProgressHUD.m in Sources */,
 				8645E9D018331D9E0094F676 /* TDDayView.m in Sources */,
 				8645E9D31833370F0094F676 /* UILocalNotification+DailyNotification.m in Sources */,
 			);
