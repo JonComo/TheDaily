@@ -17,6 +17,9 @@
 #import "MBProgressHUD.h"
 
 #import "JCMath.h"
+#import "NSDate+AngularTime.h"
+
+#import "TDDayView.h"
 
 #import "UILocalNotification+DailyNotification.h"
 
@@ -44,6 +47,8 @@
     
     NSTimeInterval currentTime;
     
+    IBOutlet TDDayView *viewDay;
+    
     BOOL didDrag;
 }
 
@@ -57,7 +62,7 @@
 	// Do any additional setup after loading the view.
     
     formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"hh:mm a"];
+    [formatter setDateFormat:@"hh:mm"];
     
     reminderTemplates = [[NSUserDefaults standardUserDefaults] objectForKey:REMINDER_TEMPLATES];
     
@@ -95,6 +100,9 @@
         }
     }];
     
+    NSTimer *updateDayView;
+    updateDayView = [NSTimer scheduledTimerWithTimeInterval:1 target:viewDay selector:@selector(setNeedsDisplay) userInfo:nil repeats:YES];
+    
     [self showScheduledReminders];
 }
 
@@ -106,7 +114,7 @@
 
 -(void)receivedNotification:(UILocalNotification *)note
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Local note" message:@"message" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"TheDaily" message:note.userInfo[@"name"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
     
     [alert show];
 }
@@ -144,7 +152,8 @@
 {
     CGPoint center = CGPointMake(self.view.bounds.size.width/2, self.view.bounds.size.height/2);
     
-    int seconds = [self secondsForPosition:reminder.frame.origin];
+    int seconds = [self secondsForPosition:CGPointMake(reminder.frame.origin.x + reminder.frame.size.width/2, reminder.frame.origin.y + reminder.frame.size.height/2)];
+    
     float angle = [JCMath angleFromPoint:center toPoint:reminder.frame.origin];
     float distance = [JCMath distanceBetweenPoint:reminder.frame.origin andPoint:center sorting:NO];
     
@@ -206,8 +215,6 @@
     float angle = [reminder.notification.userInfo[@"angle"] floatValue];
     float distance = [reminder.notification.userInfo[@"distance"] floatValue];
     
-    // angle += currentTime;
-    
     CGPoint offset = [JCMath pointFromPoint:center pushedBy:distance inDirection:angle];
     
     return offset;
@@ -219,29 +226,9 @@
     
     float angle = [JCMath angleFromPoint:center toPoint:position] - 90.0;
     
-    int seconds = [self secondsFromAngle:angle];
+    int seconds = [NSDate secondsFromAngle:angle];
     
     return seconds;
-}
-
--(float)angleFromSeconds:(NSTimeInterval)seconds
-{
-    float timeRatio = (float)seconds / 86400;
-    
-    float angle = timeRatio * 360;
-    
-    return angle;
-}
-
--(int)secondsFromAngle:(float)angle
-{
-    float angleRatio = angle/360;
-    
-    float seconds = 86400 * angleRatio;
-    
-    seconds = roundf((float)seconds / ( 60 * 5)) * 60 * 5;
-    
-    return (int)seconds;
 }
 
 - (IBAction)showTemplates:(id)sender
@@ -288,6 +275,17 @@
         [addNew addTarget:self action:@selector(createNewTemplate:) forControlEvents:UIControlEventTouchUpInside];
         
         [templatesView addSubview:addNew];
+        
+        UIButton *cancel = [UIButton buttonWithType:UIButtonTypeSystem];
+        
+        cancel.frame = CGRectMake(0, templatesView.bounds.size.height - buttonSize.height, buttonSize.width*3/5, buttonSize.height);
+        
+        [cancel setTitle:@"Cancel" forState:UIControlStateNormal];
+        [cancel setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        
+        [cancel addTarget:self action:@selector(removeTemplates) forControlEvents:UIControlEventTouchUpInside];
+        
+        [templatesView addSubview:cancel];
     }
     
     templatesCollectionView.scrollEnabled = YES;
@@ -314,7 +312,9 @@
 
 -(void)removeTemplates
 {
-    [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
+    MBProgressHUD *hud = [MBProgressHUD HUDForView:self.view];
+    
+    [MBProgressHUD hideAllHUDsForView:self.view animated:hud.alpha == 1];
 }
 
 -(void)createNewTemplate:(UIButton *)sender
@@ -354,6 +354,7 @@
         reminderViewActive = [self newReminderAtPosition:touchPosition];
         
         reminderViewActive.selected = NO;
+        reminderViewActive.enlarge = YES;
         
         reminderViewActive.layer.transform = CATransform3DMakeScale(0.5, 0.5, 1);
         [UIView animateWithDuration:0.2 animations:^{

@@ -48,11 +48,12 @@
         labelName = [self whiteLabelTextSize:18];
         labelTime = [self whiteLabelTextSize:16];
         
-        [labelTime setFont:[UIFont fontWithName:@"Helvetica Bold" size:16]];
+        [labelTime setFont:[UIFont fontWithName:@"Helvetica Bold" size:18]];
+        [labelName setFont:[UIFont fontWithName:@"Helvetica Bold" size:16]];
         
         buttonRemove = [self button];
         
-        [buttonRemove setTitle:@"-remove" forState:UIControlStateNormal];
+        [buttonRemove setTitle:@"remove" forState:UIControlStateNormal];
         
         [buttonRemove addTarget:self action:@selector(cancel:) forControlEvents:UIControlEventTouchUpInside];
         
@@ -146,7 +147,7 @@
         [self addSubview:buttonRemove];
     }else{
         //hide
-        int inset = 6;
+        int inset = 8;
         labelName.frame = CGRectMake(inset, inset, size.width - inset*2, size.height- inset*2);
         
         [labelTime removeFromSuperview];
@@ -214,13 +215,12 @@
     //// Frames
     [self determineMode];
     
+    CGRect frame = rect;
+    
     if (self.selected || self.enlarge)
     {
         //// Color Declarations
         UIColor* color = primary;
-        
-        //// Frames
-        CGRect frame = rect;
         
         //// Oval Drawing
         UIBezierPath* ovalPath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(CGRectGetMinX(frame), CGRectGetMinY(frame), CGRectGetWidth(frame), CGRectGetHeight(frame))];
@@ -263,14 +263,18 @@
         
         //// Star 2 Drawing
         UIBezierPath* star2Path = [UIBezierPath bezierPath];
-        [star2Path moveToPoint: CGPointMake(22, 0)];
-        [star2Path addLineToPoint: CGPointMake(29.52, 14.48)];
-        [star2Path addLineToPoint: CGPointMake(44, 22)];
-        [star2Path addLineToPoint: CGPointMake(29.52, 29.52)];
-        [star2Path addLineToPoint: CGPointMake(22, 44)];
-        [star2Path addLineToPoint: CGPointMake(14.48, 29.52)];
-        [star2Path addLineToPoint: CGPointMake(0, 22)];
-        [star2Path addLineToPoint: CGPointMake(14.48, 14.48)];
+        [star2Path moveToPoint: CGPointMake(CGRectGetMinX(frame) + 21, CGRectGetMinY(frame) - 1)];
+        [star2Path addLineToPoint: CGPointMake(CGRectGetMinX(frame) + 28.67, CGRectGetMinY(frame) + 7.72)];
+        [star2Path addLineToPoint: CGPointMake(CGRectGetMinX(frame) + 40.05, CGRectGetMinY(frame) + 10)];
+        [star2Path addLineToPoint: CGPointMake(CGRectGetMinX(frame) + 36.34, CGRectGetMinY(frame) + 21)];
+        [star2Path addLineToPoint: CGPointMake(CGRectGetMinX(frame) + 40.05, CGRectGetMinY(frame) + 32)];
+        [star2Path addLineToPoint: CGPointMake(CGRectGetMinX(frame) + 28.67, CGRectGetMinY(frame) + 34.28)];
+        [star2Path addLineToPoint: CGPointMake(CGRectGetMinX(frame) + 21, CGRectGetMinY(frame) + 43)];
+        [star2Path addLineToPoint: CGPointMake(CGRectGetMinX(frame) + 13.33, CGRectGetMinY(frame) + 34.28)];
+        [star2Path addLineToPoint: CGPointMake(CGRectGetMinX(frame) + 1.95, CGRectGetMinY(frame) + 32)];
+        [star2Path addLineToPoint: CGPointMake(CGRectGetMinX(frame) + 5.66, CGRectGetMinY(frame) + 21)];
+        [star2Path addLineToPoint: CGPointMake(CGRectGetMinX(frame) + 1.95, CGRectGetMinY(frame) + 10)];
+        [star2Path addLineToPoint: CGPointMake(CGRectGetMinX(frame) + 13.33, CGRectGetMinY(frame) + 7.72)];
         [star2Path closePath];
         [fillColor setFill];
         [star2Path fill];

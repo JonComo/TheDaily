@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		862FB02A1839343C006B355B /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 862FB0291839343C006B355B /* MBProgressHUD.m */; };
+		862FB02D183953C0006B355B /* NSDate+AngularTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 862FB02C183953C0006B355B /* NSDate+AngularTime.m */; };
+		862FB03A183A8CC2006B355B /* dayNight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 862FB030183A8CC2006B355B /* dayNight@2x.png */; };
 		8645E9D018331D9E0094F676 /* TDDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8645E9CF18331D9E0094F676 /* TDDayView.m */; };
 		8645E9D31833370F0094F676 /* UILocalNotification+DailyNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 8645E9D21833370F0094F676 /* UILocalNotification+DailyNotification.m */; };
 		86C7120D182F57820049B517 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C7120C182F57820049B517 /* Foundation.framework */; };
@@ -45,6 +47,9 @@
 /* Begin PBXFileReference section */
 		862FB0281839343C006B355B /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		862FB0291839343C006B355B /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		862FB02B183953C0006B355B /* NSDate+AngularTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+AngularTime.h"; sourceTree = "<group>"; };
+		862FB02C183953C0006B355B /* NSDate+AngularTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+AngularTime.m"; sourceTree = "<group>"; };
+		862FB030183A8CC2006B355B /* dayNight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dayNight@2x.png"; sourceTree = "<group>"; };
 		8645E9CE18331D9E0094F676 /* TDDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDDayView.h; sourceTree = "<group>"; };
 		8645E9CF18331D9E0094F676 /* TDDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDDayView.m; sourceTree = "<group>"; };
 		8645E9D11833370F0094F676 /* UILocalNotification+DailyNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILocalNotification+DailyNotification.h"; sourceTree = "<group>"; };
@@ -105,6 +110,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		862FB02E183A8CC2006B355B /* media */ = {
+			isa = PBXGroup;
+			children = (
+				862FB030183A8CC2006B355B /* dayNight@2x.png */,
+			);
+			path = media;
+			sourceTree = "<group>";
+		};
 		86C71200182F57820049B517 = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +156,7 @@
 		86C71214182F57820049B517 /* TheDaily */ = {
 			isa = PBXGroup;
 			children = (
+				862FB02E183A8CC2006B355B /* media */,
 				86C7121D182F57820049B517 /* TDAppDelegate.h */,
 				86C7121E182F57820049B517 /* TDAppDelegate.m */,
 				86C71220182F57820049B517 /* Main.storyboard */,
@@ -159,6 +173,8 @@
 				8645E9CF18331D9E0094F676 /* TDDayView.m */,
 				8645E9D11833370F0094F676 /* UILocalNotification+DailyNotification.h */,
 				8645E9D21833370F0094F676 /* UILocalNotification+DailyNotification.m */,
+				862FB02B183953C0006B355B /* NSDate+AngularTime.h */,
+				862FB02C183953C0006B355B /* NSDate+AngularTime.m */,
 				86C7122B182F57820049B517 /* Images.xcassets */,
 				86C71215182F57820049B517 /* Supporting Files */,
 			);
@@ -275,6 +291,7 @@
 				86C7122C182F57820049B517 /* Images.xcassets in Resources */,
 				86C71222182F57820049B517 /* Main.storyboard in Resources */,
 				86C71252182F5A790049B517 /* reminderTemplateCell.xib in Resources */,
+				862FB03A183A8CC2006B355B /* dayNight@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +313,7 @@
 				86C7125A182F61F80049B517 /* TDTemplateCollectionView.m in Sources */,
 				86C7121F182F57820049B517 /* TDAppDelegate.m in Sources */,
 				86C7125D182F6BC20049B517 /* JCMath.m in Sources */,
+				862FB02D183953C0006B355B /* NSDate+AngularTime.m in Sources */,
 				86C7121B182F57820049B517 /* main.m in Sources */,
 				86C71255182F5F190049B517 /* TDReminderView.m in Sources */,
 				86C7124A182F58490049B517 /* TDDayViewController.m in Sources */,
