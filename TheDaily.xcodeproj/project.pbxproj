@@ -12,6 +12,7 @@
 		862FB03A183A8CC2006B355B /* dayNight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 862FB030183A8CC2006B355B /* dayNight@2x.png */; };
 		8645E9D018331D9E0094F676 /* TDDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8645E9CF18331D9E0094F676 /* TDDayView.m */; };
 		8645E9D31833370F0094F676 /* UILocalNotification+DailyNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 8645E9D21833370F0094F676 /* UILocalNotification+DailyNotification.m */; };
+		86460E1E183AB43900FA4FD5 /* TDClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86460E1D183AB43900FA4FD5 /* TDClockView.m */; };
 		86C7120D182F57820049B517 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C7120C182F57820049B517 /* Foundation.framework */; };
 		86C7120F182F57820049B517 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C7120E182F57820049B517 /* CoreGraphics.framework */; };
 		86C71211182F57820049B517 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C71210182F57820049B517 /* UIKit.framework */; };
@@ -54,6 +55,8 @@
 		8645E9CF18331D9E0094F676 /* TDDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDDayView.m; sourceTree = "<group>"; };
 		8645E9D11833370F0094F676 /* UILocalNotification+DailyNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILocalNotification+DailyNotification.h"; sourceTree = "<group>"; };
 		8645E9D21833370F0094F676 /* UILocalNotification+DailyNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILocalNotification+DailyNotification.m"; sourceTree = "<group>"; };
+		86460E1C183AB43900FA4FD5 /* TDClockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDClockView.h; sourceTree = "<group>"; };
+		86460E1D183AB43900FA4FD5 /* TDClockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDClockView.m; sourceTree = "<group>"; };
 		86C71209182F57820049B517 /* TheDaily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheDaily.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86C7120C182F57820049B517 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		86C7120E182F57820049B517 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -175,6 +178,8 @@
 				8645E9D21833370F0094F676 /* UILocalNotification+DailyNotification.m */,
 				862FB02B183953C0006B355B /* NSDate+AngularTime.h */,
 				862FB02C183953C0006B355B /* NSDate+AngularTime.m */,
+				86460E1C183AB43900FA4FD5 /* TDClockView.h */,
+				86460E1D183AB43900FA4FD5 /* TDClockView.m */,
 				86C7122B182F57820049B517 /* Images.xcassets */,
 				86C71215182F57820049B517 /* Supporting Files */,
 			);
@@ -317,6 +322,7 @@
 				86C7121B182F57820049B517 /* main.m in Sources */,
 				86C71255182F5F190049B517 /* TDReminderView.m in Sources */,
 				86C7124A182F58490049B517 /* TDDayViewController.m in Sources */,
+				86460E1E183AB43900FA4FD5 /* TDClockView.m in Sources */,
 				86C71250182F5A6E0049B517 /* TDReminderTemplateCell.m in Sources */,
 				862FB02A1839343C006B355B /* MBProgressHUD.m in Sources */,
 				8645E9D018331D9E0094F676 /* TDDayView.m in Sources */,

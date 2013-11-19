@@ -12,7 +12,7 @@
                         <viewControllerLayoutGuide type="top" id="eI2-YU-iu3"/>
                         <viewControllerLayoutGuide type="bottom" id="19k-s4-IMy"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="bdc-N1-crn" customClass="TDDayView">
+                    <view key="view" contentMode="scaleToFill" id="bdc-N1-crn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -20,6 +20,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mwk-Mg-kWl" userLabel="clock" customClass="TDClockView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03t-MR-xgL">
                                 <rect key="frame" x="244" y="524" width="76" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -54,18 +59,22 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="mwk-Mg-kWl" firstAttribute="trailing" secondItem="Ngc-s6-0qw" secondAttribute="trailing" id="4X3-aO-bpm"/>
                             <constraint firstItem="19k-s4-IMy" firstAttribute="top" secondItem="Ngc-s6-0qw" secondAttribute="bottom" id="89g-MO-giO"/>
+                            <constraint firstItem="mwk-Mg-kWl" firstAttribute="bottom" secondItem="cor-z8-gt1" secondAttribute="bottom" id="9e6-bT-S5k"/>
                             <constraint firstAttribute="trailing" secondItem="Ngc-s6-0qw" secondAttribute="trailing" id="Nvf-Mu-AYM"/>
                             <constraint firstItem="cor-z8-gt1" firstAttribute="leading" secondItem="bdc-N1-crn" secondAttribute="leading" id="W4X-bC-HU0"/>
                             <constraint firstItem="Ngc-s6-0qw" firstAttribute="top" secondItem="eI2-YU-iu3" secondAttribute="bottom" id="Yq4-CY-c7u"/>
                             <constraint firstItem="Ngc-s6-0qw" firstAttribute="leading" secondItem="bdc-N1-crn" secondAttribute="leading" id="eUO-JH-zqx"/>
                             <constraint firstItem="cor-z8-gt1" firstAttribute="bottom" secondItem="03t-MR-xgL" secondAttribute="bottom" id="jlm-Xo-2fB"/>
+                            <constraint firstItem="mwk-Mg-kWl" firstAttribute="top" secondItem="Ngc-s6-0qw" secondAttribute="top" id="kH5-eS-cm0"/>
+                            <constraint firstItem="mwk-Mg-kWl" firstAttribute="leading" secondItem="Ngc-s6-0qw" secondAttribute="leading" id="lg9-vs-zJS"/>
                             <constraint firstItem="19k-s4-IMy" firstAttribute="top" secondItem="03t-MR-xgL" secondAttribute="bottom" id="rvE-aa-WM0"/>
                             <constraint firstAttribute="trailing" secondItem="03t-MR-xgL" secondAttribute="trailing" id="wVZ-Wa-6c7"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="viewDay" destination="bdc-N1-crn" id="hgH-VD-btZ"/>
+                        <outlet property="viewClock" destination="mwk-Mg-kWl" id="wmk-bs-rwD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btX-cZ-eVz" sceneMemberID="firstResponder"/>

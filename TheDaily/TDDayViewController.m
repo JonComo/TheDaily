@@ -19,7 +19,7 @@
 #import "JCMath.h"
 #import "NSDate+AngularTime.h"
 
-#import "TDDayView.h"
+#import "TDClockView.h"
 
 #import "UILocalNotification+DailyNotification.h"
 
@@ -47,7 +47,7 @@
     
     NSTimeInterval currentTime;
     
-    IBOutlet TDDayView *viewDay;
+    __weak IBOutlet TDClockView *viewClock;
     
     BOOL didDrag;
 }
@@ -101,7 +101,7 @@
     }];
     
     NSTimer *updateDayView;
-    updateDayView = [NSTimer scheduledTimerWithTimeInterval:1 target:viewDay selector:@selector(setNeedsDisplay) userInfo:nil repeats:YES];
+    updateDayView = [NSTimer scheduledTimerWithTimeInterval:1 target:viewClock selector:@selector(setNeedsDisplay) userInfo:nil repeats:YES];
     
     [self showScheduledReminders];
 }
@@ -296,7 +296,7 @@
     [hud setMode:MBProgressHUDModeCustomView];
     
     hud.color = [UIColor clearColor];
-    hud.backgroundColor = [UIColor colorWithWhite:1 alpha:0.8];
+    hud.backgroundColor = [UIColor colorWithWhite:0 alpha:0.2];
     
     hud.customView = templatesView;
 }
@@ -550,9 +550,9 @@
     return reminderTemplates.count;
 }
 
--(UIStatusBarStyle)preferredStatusBarStyle
+-(BOOL)prefersStatusBarHidden
 {
-    return UIStatusBarStyleLightContent;
+    return YES;
 }
 
 @end
